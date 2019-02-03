@@ -48,6 +48,14 @@ services:
           MYSQL_USER: project
           MYSQL_PASSWORD: project
 
+  buildchain:
+      build:
+        context: .
+        dockerfile: ./docker-config/buildchain/Dockerfile
+      volumes:
+          - ./docker-config/buildchain/package.json:/project/package.json
+          - ./src:/project/src
+
 volumes:
   db-data:
   cpresources:
