@@ -53,9 +53,11 @@ services:
         context: .
         dockerfile: ./docker-config/buildchain/Dockerfile
       volumes:
+          - node-modules:/project/node_modules
           - ./docker-config/buildchain/package.json:/project/package.json
           - ./src:/project/src
 
 volumes:
   db-data:
   cpresources:
+  node-modules:
