@@ -6,9 +6,28 @@
   "scripts": {
     "build": "yarn run build-css && yarn run build-js",
     "build-css": "./node_modules/.bin/node-sass --output-style compressed ./src/assets/css/app.scss > ./src/web/assets/css/app.css",
-    "build-js": "./node_modules/.bin/babel ./src/assets/js/app.js --presets es2015 --out-file ./src/web/assets/js/app.js"
+    "build-js": "./node_modules/.bin/babel ./src/assets/js/app.js --presets es2015 --out-file ./src/web/assets/js/app.js",
+    "watch": "npm-watch"
   },
-  "dependencies": {},
+  "watch": {
+    "build-css": {
+      "patterns": [
+        "src/assets/css"
+      ],
+      "extensions": "scss",
+      "quiet": false
+    },
+    "build-js": {
+      "patterns": [
+        "src/assets/js"
+      ],
+      "extensions": "js",
+      "quiet": false
+    }
+  },
+  "dependencies": {
+    "npm-watch": "^0.6.0"
+  },
   "devDependencies": {
     "@babel/core": "^7.2.0",
     "babel-cli": "^6.26.0",
